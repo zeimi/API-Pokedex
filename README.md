@@ -18,7 +18,6 @@ No bytes?
 VINGADORES: ULTIMOGUS
 
 ![anime](https://user-images.githubusercontent.com/94016306/167965299-757a98dc-9e16-4d98-ac5e-cc36becb6ce2.gif)
-![sam](https://user-images.githubusercontent.com/94016306/167965855-4730d313-7c32-4e75-8051-53bd71c5797d.gif)
 ![kanna](https://user-images.githubusercontent.com/94016306/167965295-851e614f-9cba-489f-86a2-e7c4805c9b5b.gif)
 
-
+![sam](https://user-images.githubusercontent.com/94016306/167965855-4730d313-7c32-4e75-8051-53bd71c5797d.gif)
