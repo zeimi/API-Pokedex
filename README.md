@@ -6,4 +6,4 @@ No bytes?
 
 ![katarina](https://i.imgur.com/x92mB5h.gif)
 
-![takane](https://tenor.com/view/the-idolmaster-takane-popcorn-eating-video-game-gif-15975499)
+![takane](https://user-images.githubusercontent.com/94016306/167963469-850e188c-95df-445a-b56d-c30ff6f26fe5.gif)
