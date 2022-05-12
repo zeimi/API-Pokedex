@@ -4,6 +4,7 @@ No bytes?
 &nbsp;
 
 ![takane](https://user-images.githubusercontent.com/94016306/167963728-2c3c7112-ad3f-4747-994f-efaa45c29b50.gif)
+![kaguya2](https://user-images.githubusercontent.com/94016306/167966717-da4aa20d-e20b-42a8-8f76-a34e4e348f5b.gif)
 &nbsp;
 ![katarina](https://i.imgur.com/x92mB5h.gif)
 &nbsp;
@@ -15,9 +16,9 @@ No bytes?
 &nbsp;
 ![amoga](https://user-images.githubusercontent.com/94016306/167964317-33e09b17-3340-43df-bfb0-718ea1aa0964.gif)
 &nbsp;
+
 VINGADORES: ULTIMOGUS
 
-![anime](https://user-images.githubusercontent.com/94016306/167965299-757a98dc-9e16-4d98-ac5e-cc36becb6ce2.gif)
-![kanna](https://user-images.githubusercontent.com/94016306/167965295-851e614f-9cba-489f-86a2-e7c4805c9b5b.gif)
-
 ![sam](https://user-images.githubusercontent.com/94016306/167965855-4730d313-7c32-4e75-8051-53bd71c5797d.gif)
+
+![shirogane](https://user-images.githubusercontent.com/94016306/167966915-f56135f4-c6b5-4649-a17a-285999a40cec.gif)
