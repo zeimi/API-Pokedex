@@ -4,6 +4,7 @@ No bytes?
 &nbsp;
 
 ![takane](https://user-images.githubusercontent.com/94016306/167963728-2c3c7112-ad3f-4747-994f-efaa45c29b50.gif)
+![kaguya2](https://user-images.githubusercontent.com/94016306/167966717-da4aa20d-e20b-42a8-8f76-a34e4e348f5b.gif)
 &nbsp;
 ![katarina](https://i.imgur.com/x92mB5h.gif)
 &nbsp;
