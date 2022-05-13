@@ -20,7 +20,7 @@ from APIapp.api import viewsets as APIviewsets
 from rest_framework import routers
 
 route = routers.DefaultRouter()
-route.register(r'APIapp/', APIviewsets.PokeViewSet, basename="Poke")
+route.register(r'APIapp', APIviewsets.PokeViewSet, basename="Poke")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
