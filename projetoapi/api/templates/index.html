@@ -44,6 +44,7 @@
             <label for="tipo">Tipo do pokemon:</label>
             <input type="text" class="form-control" id="tipo" name="none">
         </div>
+        {% csrf_token %}
         <button type="submit" class="btn btn-primary" id="enviar">Submit</button>
     </form>
     <!--INICIO DO FORMULARIO-->
@@ -77,7 +78,6 @@
                     document.getElementsByTagName('tbody')[0].append(tr);
 
                 }
-                console.log(response);
             })
             .catch(function (erro) { console.error(erro); });
 
@@ -87,10 +87,12 @@
         enviar = document.getElementById("enviar");
 
         enviar.addEventListener("click", function (evento) {
-            var nome, tipo, header, envio = {};
+            var nome, tipo, header, csrf_token, envio = {};
 
             nome = document.getElementById("nome").value;
             tipo = document.getElementById("tipo").value;
+            csrf_token = document.getElementsByName("name=csrfmiddlewaretoken")[0].value
+            console.log("O token", csrf_token);
             evento.preventDefault();
 
             envio.nome = nome;
@@ -102,7 +104,7 @@
                 headers: {"Content-type": "application/json; charset=UTF-8"}
             }
 
-            fetch("/", header)
+            fetch("/criar/", header)
                 .then(function (response){return response.json()})
                 .then(function (response){console.log('response', response)})
                 .catch(function (erro){console.error(erro)})
