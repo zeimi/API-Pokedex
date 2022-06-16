@@ -32,11 +32,14 @@ def buscar(request):
         return JsonResponse(valores)
 
 def criar(request):
-    nome = request.POST("nome")
-    tipo = request.POST("tipo")
+    try:
+        nome = request.POST("nome")
+        tipo = request.POST("tipo")
 
-    pokemon = Pokemon()
-    pokemon.nome = nome
-    pokemon.tipo = tipo
+        pokemon = Pokemon()
+        pokemon.nome = nome
+        pokemon.tipo = tipo
 
-    pokemon.save()
+        pokemon.save()
+    except Exception as error:
+        print('Error', error)
