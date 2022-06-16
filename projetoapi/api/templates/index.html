@@ -91,7 +91,7 @@
 
             nome = document.getElementById("nome").value;
             tipo = document.getElementById("tipo").value;
-            csrf_token = document.getElementsByName("name=csrfmiddlewaretoken")[0].value
+            csrf_token = document.getElementsByName("csrfmiddlewaretoken")[0].value
             console.log("O token", csrf_token);
             evento.preventDefault();
 
@@ -99,9 +99,9 @@
             envio.tipo = tipo;
 
             header = {
-                method: "POST",
-                body: JSON.stringify(envio),
-                headers: {"Content-type": "application/json; charset=UTF-8"}
+                'method': "POST",
+                'headers': {"X-CSRFToken": csrf_token},
+                'body': JSON.stringify(envio),
             }
 
             fetch("/criar/", header)
