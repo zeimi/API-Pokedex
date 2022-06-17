@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Api Pokémon</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <!-- jQuery library -->
@@ -16,17 +16,28 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .btn-primary {
+            text-align: center;
+        }
+        .btn-primary:hover {
+            color: rgb(0, 0, 0);
+        }
+
+        
+    </style>
 </head>
+
 
 <body>
     <div class="container">
-        <h2>Basic Table</h2>
-        <p>The .table class adds basic styling (light padding and horizontal dividers) to a table:</p>
+        <h2>Tabela com os pokemons da primeira geração</h2>
+        <p>Os 150 + 1 pokémon mais famosos!</p>
         <table class="table">
             <thead>
                 <tr>
-                    <th>Nome</th>
-                    <th>Tipo</th>
+                    <th>Nome do Pokémon</th>
+                    <th>Tipo do Pokémon</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,83 +45,63 @@
         </table>
     </div>
 
-    <!--INICIO DO FORMULARIO-->
-    <form style="width: 300px; margin:auto">
-        <div class="form-group">
-            <label for="nome">Nome do pokemon:</label>
-            <input type="text" class="form-control" id="nome" name="none">
-        </div>
-        <div class="form-group">
-            <label for="tipo">Tipo do pokemon:</label>
-            <input type="text" class="form-control" id="tipo" name="none">
-        </div>
-        {% csrf_token %}
-        <button type="submit" class="btn btn-primary" id="enviar">Submit</button>
-    </form>
-    <!--INICIO DO FORMULARIO-->
+    <!-- FORMULÁRIO INÍCIO -->
 
+    <form style="width:500px; margin:auto">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary" id="enviar" href='http://127.0.0.1:8000/buscar/'>
+            <a style="color:white" href='http://127.0.0.1:8000/buscar/'>Modelo JSON</a>
+        </button>
+    </form>
+    <!-- FORMULÁRIO FIM -->
 
     <script>
-        var objeto = {}
+        var enviar, objeto = {}
+
         objeto.method = "GET";
 
-        fetch('/buscar', objeto)
-            .then(function (response) { return response.json() })
-            .then(function (response) {
-                var len, lista = JSON.parse(response.lista);
-                len = lista.lenght;
+        fetch("/buscar", objeto)
+            .then(function (resposta) {
+                return resposta.json();
+            })
+            .then(function (resposta) {
+                var len, data = JSON.parse(resposta.data);
+
+                len = data.length;
 
                 for (let index = 0; index < len; index++) {
-                    var nome, tipo, tr, td1, td2;
+                    var nome, tipo;
 
-                    nome = lista[index].nome;
-                    tipo = lista[index].tipo;
+                    nome = data[index].nome;
+                    tipo = data[index].tipo;
 
-                    tr = document.createElement('tr');
-                    td1 = document.createElement('td');
-                    td2 = document.createElement('td');
-
-                    td1.textContent = nome;
-                    td2.textContent = tipo;
-                    tr.append(td1)
-                    tr.append(td2)
-
-                    document.getElementsByTagName('tbody')[0].append(tr);
+                    drawTable(nome, tipo);
 
                 }
             })
-            .catch(function (erro) { console.error(erro); });
+            .catch(function (erro) {
+                console.error(erro);
+            });
 
-        // Pegando a variavel
-
-        var enviar;
+        // Pegando formulário
         enviar = document.getElementById("enviar");
 
-        enviar.addEventListener("click", function (evento) {
-            var nome, tipo, header, csrf_token, envio = {};
-
-            nome = document.getElementById("nome").value;
-            tipo = document.getElementById("tipo").value;
-            csrf_token = document.getElementsByName("csrfmiddlewaretoken")[0].value
-            console.log("O token", csrf_token);
-            evento.preventDefault();
-
-            envio.nome = nome;
-            envio.tipo = tipo;
-
-            header = {
-                'method': "POST",
-                'headers': {"X-CSRFToken": csrf_token},
-                'body': JSON.stringify(envio),
-            }
-
-            fetch("/criar/", header)
-                .then(function (response){return response.json()})
-                .then(function (response){console.log('response', response)})
-                .catch(function (erro){console.error(erro)})
-        })
 
 
+        function drawTable(nome, tipo) {
+            var tr, td1, td2;
+
+            tr = document.createElement('tr');
+            td1 = document.createElement('td');
+            td2 = document.createElement('td');
+
+            td1.textContent = nome;
+            td2.textContent = tipo;
+            tr.append(td1);
+            tr.append(td2);
+
+            document.getElementsByTagName('tbody')[0].append(tr);
+        }
     </script>
 
 </body>
