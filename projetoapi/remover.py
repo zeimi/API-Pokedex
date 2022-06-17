@@ -35,7 +35,7 @@ def main():
     # create a database connection
     conn = create_connection(database)
     with conn:
-        delete_task(conn, 1);
+        delete_task(conn, 3);
         # delete_all_tasks(conn);
 
 
