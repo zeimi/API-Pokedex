@@ -27,6 +27,21 @@
             text-align: center;
             color: rgb(155, 155, 155);
         }
+        .btn-primary {
+            color: rgb(0, 0, 0);
+            background-color: #eefd63;
+            border-color: #eefd63;
+            text-align: center;
+        }
+        .btn-primary:hover {
+            color: rgb(0, 0, 0);
+            background-color: #e1ff00;
+            border-color: #f2ff00;
+        }
+        form {
+            align-self: center;
+            align-items: center;
+        }
     </style>
 </head>
 
@@ -44,7 +59,7 @@
             <input type="text" class="form-control" id="tipo" name="nome">
         </div>
         {% csrf_token %}
-        <button type="submit" class="btn btn-primary" id="enviar">Submit</button>
+        <button type="submit" class="btn btn-primary" id="enviar">Salvar</button>
     </form>
     <!-- FORMULÁRIO FIM -->
 

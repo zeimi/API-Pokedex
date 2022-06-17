@@ -6,4 +6,5 @@ urlpatterns = [
     path('buscar/', views.buscar, name='buscar'),
     path('criar/', views.criar, name='criar'),
     path('inserir/', views.inserir, name='inserir'),
+    
 ]

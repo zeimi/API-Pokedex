@@ -16,7 +16,18 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .btn-primary {
+            text-align: center;
+        }
+        .btn-primary:hover {
+            color: rgb(0, 0, 0);
+        }
+
+        
+    </style>
 </head>
+
 
 <body>
     <div class="container">
@@ -38,7 +49,9 @@
 
     <form style="width:500px; margin:auto">
         {% csrf_token %}
-        <button type="submit" class="btn btn-primary" id="enviar">Submit</button>
+        <button type="submit" class="btn btn-primary" id="enviar" href='http://127.0.0.1:8000/buscar/'>
+            <a style="color:white" href='http://127.0.0.1:8000/buscar/'>Modelo JSON</a>
+        </button>
     </form>
     <!-- FORMULÁRIO FIM -->
 
@@ -73,38 +86,7 @@
         // Pegando formulário
         enviar = document.getElementById("enviar");
 
-        enviar.addEventListener("click", function (evento) {
-            var nome, tipo, header, csrf_token, envio = {};
 
-            nome = document.getElementById("nome").value;
-            tipo = document.getElementById("tipo").value;
-            csrf_token = document.getElementsByName('csrfmiddlewaretoken')[0].value
-            evento.preventDefault();
-
-            envio.nome = nome;
-            envio.tipo = tipo;
-
-            header = {
-                method: 'POST',
-                headers: {
-                    "X-CSRFToken": csrf_token
-                },
-                body: JSON.stringify(envio)
-            }
-
-            fetch("/criar/", header)
-                .then(function (resposta) {
-                    return resposta.json();
-                })
-                .then(function (response) {
-                    drawTable(response.nome, response.tipo);
-                    alert('Item adicionado com sucesso!');
-                })
-                .catch(function (erro) {
-                    console.error(erro);
-                    alert('Erro ao adicionar o item');
-                })
-        });
 
         function drawTable(nome, tipo) {
             var tr, td1, td2;
