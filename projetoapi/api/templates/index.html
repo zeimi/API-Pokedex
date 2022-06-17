@@ -30,7 +30,7 @@
 
 
 <body>
-    <div class="container">
+    <div class="container"> <!-- Tabela -->
         <h2>Tabela com os pokemons da primeira geração</h2>
         <p>Os 150 + 1 pokémon mais famosos!</p>
         <table class="table">
@@ -88,7 +88,7 @@
 
 
 
-        function drawTable(nome, tipo) {
+        function drawTable(nome, tipo) { // Função para criar a tabela
             var tr, td1, td2;
 
             tr = document.createElement('tr');
@@ -100,7 +100,7 @@
             tr.append(td1);
             tr.append(td2);
 
-            document.getElementsByTagName('tbody')[0].append(tr);
+            document.getElementsByTagName('tbody')[0].append(tr); // Adicionando à tabela
         }
     </script>
 
