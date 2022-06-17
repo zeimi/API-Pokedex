@@ -20,8 +20,8 @@
 
 <body>
     <div class="container">
-        <h2>Basic Table</h2>
-        <p>The .table class adds basic styling (light padding and horizontal dividers) to a table:</p>
+        <h2>Pokémon</h2>
+        <p>Tabela de pokémon:</p>
         <table class="table">
             <thead>
                 <tr>
@@ -51,7 +51,7 @@
 
 
     <script>
-        var objeto = {}
+        var enviar, objeto = {}
         objeto.method = "GET";
 
         fetch('/buscar', objeto)
@@ -61,21 +61,12 @@
                 len = lista.lenght;
 
                 for (let index = 0; index < len; index++) {
-                    var nome, tipo, tr, td1, td2;
+                    var nome, tipo;
 
                     nome = lista[index].nome;
                     tipo = lista[index].tipo;
 
-                    tr = document.createElement('tr');
-                    td1 = document.createElement('td');
-                    td2 = document.createElement('td');
-
-                    td1.textContent = nome;
-                    td2.textContent = tipo;
-                    tr.append(td1)
-                    tr.append(td2)
-
-                    document.getElementsByTagName('tbody')[0].append(tr);
+                    drawtable(nome, tipo);
 
                 }
             })
@@ -83,7 +74,6 @@
 
         // Pegando a variavel
 
-        var enviar;
         enviar = document.getElementById("enviar");
 
         enviar.addEventListener("click", function (evento) {
@@ -106,11 +96,25 @@
 
             fetch("/criar/", header)
                 .then(function (response){return response.json()})
-                .then(function (response){console.log('response', response)})
-                .catch(function (erro){console.error(erro)})
+                .then(function (resposta){drawtable(resposta.nome, resposta.tipo)})
+                .catch(function (erro){console.error(erro); alert('erro ao adicionar pokemon')})
         })
 
 
+        function drawtable(nome, tipo){
+            var tr, td1, td2;
+
+            tr = document.createElement('tr');
+            td1 = document.createElement('td');
+            td2 = document.createElement('td');
+
+            td1.textContent = nome;
+            td2.textContent = tipo;
+            tr.append(td1)
+            tr.append(td2)
+
+            document.getElementsByTagName('tbody')[0].append(tr);
+        }
     </script>
 
 </body>

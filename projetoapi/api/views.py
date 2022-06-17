@@ -33,13 +33,30 @@ def buscar(request):
 
 def criar(request):
     try:
-        nome = request.POST("nome")
-        tipo = request.POST("tipo")
+        if request.method == 'POST':
+            nome = ''
+            tipo = ''
+            intermediaria = json.loads(request.body.decode('utf-8'))
 
-        pokemon = Pokemon()
-        pokemon.nome = nome
-        pokemon.tipo = tipo
+            nome = intermediaria['nome']
+            tipo = intermediaria['tipo']
 
-        pokemon.save()
+            pokemon = Pokemon()
+            pokemon.nome = nome
+            pokemon.tipo = tipo
+
+            pokemon.save()
+
+            sucesso = {'nome': nome, 'tipo': tipo}
+            return JsonResponse(sucesso)
+
+        else:
+            outro = {'msg': 'Erro ao tentar acessar a api'}
+            return JsonResponse(outro)
+
     except Exception as error:
         print('Error', error)
+
+        nada = {}
+        nada ['erro'] = 'Ocorreu algum erro no sistema'
+        return JsonResponse(nada)
