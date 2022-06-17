@@ -20,3 +20,10 @@ def main():
 
 if __name__ == '__main__':
     main()
+# Arquivo principal do Django que executa a API e controla o banco de dados
+# Comandos para executar a api:
+#
+# cd projetoapi
+# python manage.py runserver
+#
+# Precisa ter o Django instalado no ambiente de desenvolvimento

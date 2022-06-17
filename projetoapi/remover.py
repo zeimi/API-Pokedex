@@ -1,42 +1,32 @@
 import sqlite3
 from sqlite3 import Error
 
+# Excluir um pokemon no banco de dados com base no id informado
 
-def create_connection(db_file):
-    """ create a database connection to the SQLite database
-        specified by the db_file
-    :param db_file: database file
-    :return: Connection object or None
-    """
-    conn = None
+def criar_conexao(db_file): # Cria uma conexão com o banco de dados SQLite do Django
+    
+    conexao = None
     try:
-        conn = sqlite3.connect(db_file)
+        conexao = sqlite3.connect(db_file)
     except Error as e:
         print(e)
 
-    return conn
+    return conexao
 
 
-def delete_task(conn, id):
-    """
-    Delete a task by task id
-    :param conn:  Connection to the SQLite database
-    :param id: id of the task
-    :return:
-    """
+def delete_task(conexao, id): # Deleta um pokemon no banco de dados com base no id informado
+
     sql = 'DELETE FROM api_pokemon WHERE id=?'
-    cur = conn.cursor()
+    cur = conexao.cursor()
     cur.execute(sql, (id,))
-    conn.commit()
+    conexao.commit()
 
 def main():
     database = r"db.sqlite3"
 
-    # create a database connection
-    conn = create_connection(database)
-    with conn:
-        delete_task(conn, 3);
-        # delete_all_tasks(conn);
+    conexao = criar_conexao(database)
+    with conexao:
+        delete_task(conexao, 3); # Trocar aqui o ID do pokemon que deseja excluir
 
 
 if __name__ == '__main__':
