@@ -52,7 +52,7 @@ na pasta api, modificamos os seguintes arquivos:
    
 <h3 align="center">
    
-[![linkimgyoutube](https://img.youtube.com/vi/pmYsXkYAwQg/0.jpg)](https://www.youtube.com/watch?v=pmYsXkYAwQg)
+[![linkimgyoutube](https://img.youtube.com/vi/LyZQ4rpKRvY/0.jpg)](https://www.youtube.com/watch?v=LyZQ4rpKRvY)
   
   </h3>
   
